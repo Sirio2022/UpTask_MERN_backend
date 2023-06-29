@@ -15,12 +15,12 @@ const checkAuth = async (req, res, next) => {
       );
       return next();
     } catch (error) {
-      return res.status(404).json({ Cuidado: 'Hubo un error' });
+      return res.status(404).json({ msg: 'Hubo un error' });
     }
   }
   if (!token) {
     const error = new Error('No autorizado');
-    return res.status(401).json({ Cuidado: error.message });
+    return res.status(401).json({ msg: error.message });
   }
 
   next();
